@@ -41,18 +41,20 @@ int sudoku(int grid[9][9])
 
 		for (int a = 0; a < 3; a++) // Block number
 		{
-			int blockTotal = 0;
-			for (int x = 0; x < 3; x++)
+			for (int b = 0; b < 3; b++)
 			{
-				for (int y = 0; y < 3; y++)
+				int blockTotal = 0;
+				for (int x = 0; x < 3; x++)
 				{
-					blockTotal += grid[(a * 3) + x][(a * 3) + y];
+					for (int y = 0; y < 3; y++)
+					{
+						blockTotal += grid[(a * 3) + x][(b * 3) + y];
+					}
 				}
+				if (blockTotal != 45)
+					return 0;
 			}
-			if (blockTotal != 45)
-				return 0;
 		}
 	}
 	return 1;
 }
-
