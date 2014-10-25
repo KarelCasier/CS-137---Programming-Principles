@@ -6,8 +6,14 @@ typedef enum {false, true} bool;
 void polyPrint(double a[], int n)
 {
     bool hadPrevNumber = false;
+
     for (int i = n-1; i >= 0; i--)
     {
+
+        if (a[i] < 0 && fabs(a[i]) == 1 && !hadPrevNumber)
+        {
+            printf("-");
+        }
 
         //Handle Coefficients
         if ((a[i] > 0 || a[i] < 0)  && (fabs(a[i]) != 1 || i == 0)) // If coeff greater then
@@ -17,11 +23,6 @@ void polyPrint(double a[], int n)
                 printf("%g", a[i]);
             else
                 printf("%g", fabs(a[i])); //Print coeff only if it's greater then 1
-        }
-
-        if (i == n-1 && a[i] < 0 && fabs(a[i]) == 1)
-        {
-            printf("-");
         }
 
         //Handle x's
