@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "fraction.h"
 
 int gcd(int n, int m)
@@ -53,12 +54,17 @@ void fractionPrint (struct fraction f)
     int sign = 0;
 
     if ((f.n > 0 && f.d > 0) || (f.n < 0 && f.d < 0))
-        sign = 1;
+    {
+        //sign = 1;
+    }
     else if (f.n < 0 || f.d < 0)
+    {
         sign = -1;
+        printf("-");
+    }
 
-    f.n = abs(f.n);
-    f.d = abs(f.d);
+    f.n = fabs(f.n);
+    f.d = fabs(f.d);
     //Reduce
     int gcdNum = gcd(f.n,f.d);
     f.n /= gcdNum;
@@ -70,7 +76,7 @@ void fractionPrint (struct fraction f)
     }
     else if (f.d == 0)
     {
-        printf("Error, Division by Zero!");
+        printf("Divide by Zero!");
     }
     else if (f.n > f.d) //Print porper fraction
     {
