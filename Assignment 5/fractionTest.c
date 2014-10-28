@@ -45,5 +45,12 @@ int main (void)
     bbb = fractionAdd(bb,aaaa);
     fractionPrint(bbb);
 
+    struct fraction x,xx,y;
+
+    x = fractionCreate(2147483647, 2147483647);
+    xx = fractionCreate(2147483647, 2147483647);
+    y = fractionAdd(x,xx);
+    fractionPrint(y);
+
   return 0;
 }

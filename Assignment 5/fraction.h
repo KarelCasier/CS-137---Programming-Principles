@@ -4,6 +4,12 @@ struct fraction
     int d;
 };
 
+struct time
+{
+	int hour;
+	int minute;
+};
+
 struct fraction fractionCreate (int numerator, int denominator);
 
 struct fraction fractionAdd (struct fraction a, struct fraction b);
