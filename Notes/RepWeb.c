@@ -1,13 +1,14 @@
 /*
     Represents The Interwebs
 */
+#include <stdio.h>
 
 // Links - Size of l
 void pagerank(struct link l[], int links, int pages, double d, double r[], int iter);// r returns pagerank
 
 struct link
 {
-    int src, dist;
+    int src, dst;
 };
 
 int main(void)
